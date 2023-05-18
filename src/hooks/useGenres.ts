@@ -8,7 +8,6 @@ export interface Genre {
 }
 
 interface FetchGenreResponse {
-  page: number;
   genres: Genre[];
 }
 

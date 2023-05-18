@@ -1,14 +1,17 @@
+import { List, ListItem, Text } from "@chakra-ui/react";
 import useGenres from "../hooks/useGenres";
 
 const GenreList = () => {
   const { genres, error, isLoading } = useGenres();
 
   return (
-    <ul>
+    <List>
       {genres.map((genre) => (
-        <li key={genre.id}>{genre.name}</li>
+        <ListItem key={genre.id} paddingY={5}>
+          <Text fontSize="xl">{genre.name}</Text>
+        </ListItem>
       ))}
-    </ul>
+    </List>
   );
 };
 
