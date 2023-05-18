@@ -1,4 +1,4 @@
-import { Card, CardBody, Heading, Image } from "@chakra-ui/react";
+import { Card, CardBody, Heading, Image, Text } from "@chakra-ui/react";
 import { Movie } from "../hooks/useMovies";
 import getImageUrl from "../services/image-url";
 
@@ -12,6 +12,7 @@ const MovieCard = ({ movie }: Props) => {
       <Image src={getImageUrl(movie.poster_path)} objectFit="cover" />
       <CardBody>
         <Heading fontSize="2xl">{movie.title}</Heading>
+        <Text mt={2}>{movie.overview}</Text>
       </CardBody>
     </Card>
   );
