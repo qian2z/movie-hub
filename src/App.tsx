@@ -1,4 +1,4 @@
-import { Grid, GridItem, Show } from "@chakra-ui/react";
+import { Grid, GridItem, HStack, Show } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
 import MovieGrid from "./components/MovieGrid";
 import GenreList from "./components/GenreList";
@@ -6,6 +6,7 @@ import { useState } from "react";
 import { Genre } from "./hooks/useGenres";
 import LanguageSelector from "./components/LanguageSelector";
 import { Language } from "./hooks/useLanguges";
+import SortSelector from "./components/SortSelector";
 
 export interface MovieQuery {
   genre: Genre | null;
@@ -32,12 +33,15 @@ function App() {
         </GridItem>
       </Show>
       <GridItem area="main">
-        <LanguageSelector
-          selectedLanguage={movieQuery.language}
-          onSelectLanguage={(language) =>
-            setMovieQuery({ ...movieQuery, language })
-          }
-        />
+        <HStack padding={2} marginBottom={2}>
+          <LanguageSelector
+            selectedLanguage={movieQuery.language}
+            onSelectLanguage={(language) =>
+              setMovieQuery({ ...movieQuery, language })
+            }
+          />
+          <SortSelector />
+        </HStack>
         <MovieGrid movieQuery={movieQuery} />
       </GridItem>
     </Grid>
