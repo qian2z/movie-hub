@@ -1,11 +1,13 @@
-import { Heading } from "@chakra-ui/react";
+import { Button, HStack, Heading } from "@chakra-ui/react";
 import { MovieQuery } from "../App";
+import { ImCross } from "react-icons/im";
 
 interface Props {
   movieQuery: MovieQuery;
+  onClear: () => void;
 }
 
-const MoveHeading = ({ movieQuery }: Props) => {
+const MovieHeading = ({ movieQuery, onClear }: Props) => {
   const normalHeading = `${movieQuery.language?.english_name || ""} ${
     movieQuery.genre?.name || ""
   } Movies`;
@@ -15,11 +17,25 @@ const MoveHeading = ({ movieQuery }: Props) => {
   const heading =
     movieQuery.searchText === undefined ? normalHeading : searchHeading;
 
+  const setButton =
+    movieQuery.genre == null &&
+    movieQuery.language == null &&
+    movieQuery.searchText == undefined
+      ? false
+      : true;
+
   return (
-    <Heading as="h1" padding={2} marginY={1} fontSize="5xl">
-      {heading}
-    </Heading>
+    <HStack>
+      <Heading as="h1" padding={2} marginY={1} fontSize="5xl">
+        {heading}
+      </Heading>
+      {setButton && (
+        <Button onClick={onClear}>
+          <ImCross />
+        </Button>
+      )}
+    </HStack>
   );
 };
 
-export default MoveHeading;
+export default MovieHeading;

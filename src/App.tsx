@@ -40,7 +40,12 @@ function App() {
         </GridItem>
       </Show>
       <GridItem area="main">
-        <MovieHeading movieQuery={movieQuery} />
+        <MovieHeading
+          movieQuery={movieQuery}
+          onClear={() => {
+            setMovieQuery({} as MovieQuery);
+          }}
+        />
         <Flex padding={2.5} marginBottom={2}>
           <Box marginRight={3}>
             <LanguageSelector
