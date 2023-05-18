@@ -5,9 +5,13 @@ import GenreList from "./components/GenreList";
 import { useState } from "react";
 import { Genre } from "./hooks/useGenres";
 import LanguageSelector from "./components/LanguageSelector";
+import { Language } from "./hooks/useLanguges";
 
 function App() {
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
+  const [selectedLanguage, setSelectedLanguage] = useState<Language | null>(
+    null
+  );
 
   return (
     <Grid
@@ -26,8 +30,14 @@ function App() {
         </GridItem>
       </Show>
       <GridItem area="main">
-        <LanguageSelector />
-        <MovieGrid selectedGenre={selectedGenre} />
+        <LanguageSelector
+          selectedLanguage={selectedLanguage}
+          onSelectLanguage={(language) => setSelectedLanguage(language)}
+        />
+        <MovieGrid
+          selectedGenre={selectedGenre}
+          selectedLanguage={selectedLanguage}
+        />
       </GridItem>
     </Grid>
   );

@@ -7,7 +7,7 @@ interface Props {
 }
 
 const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
-  const { data, error, isLoading } = useGenres();
+  const { data } = useGenres();
 
   const newData = data.filter((genre) => genre.name !== "Crime");
 

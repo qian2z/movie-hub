@@ -28,7 +28,12 @@ const useData = <T>(
             setData(res.data.genres);
           } else {
             const languages = res.data;
-            setData(languages);
+            setData(
+              languages.sort(
+                (a: { english_name: string }, b: { english_name: string }) =>
+                  a.english_name.localeCompare(b.english_name)
+              )
+            );
           }
           setLoading(false);
         })

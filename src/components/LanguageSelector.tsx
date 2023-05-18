@@ -1,18 +1,28 @@
 import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react";
 import { BsChevronDown } from "react-icons/bs";
-import useLanguages from "../hooks/useLanguges";
+import useLanguages, { Language } from "../hooks/useLanguges";
 
-const LanguageSelector = () => {
-  const { data, error, isLoading } = useLanguages();
+interface Props {
+  selectedLanguage: Language | null;
+  onSelectLanguage: (language: Language) => void;
+}
+
+const LanguageSelector = ({ selectedLanguage, onSelectLanguage }: Props) => {
+  const { data } = useLanguages();
 
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-        Languages
+        {selectedLanguage?.english_name || "Languages"}
       </MenuButton>
       <MenuList maxHeight="300px" overflowY="auto">
         {data.map((language) => (
-          <MenuItem key={language.iso_639_1}>{language.english_name}</MenuItem>
+          <MenuItem
+            onClick={() => onSelectLanguage(language)}
+            key={language.iso_639_1}
+          >
+            {language.english_name}
+          </MenuItem>
         ))}
       </MenuList>
     </Menu>
