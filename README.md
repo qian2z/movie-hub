@@ -14,5 +14,5 @@ This GitHub repository showcases a feature-rich platform dedicated to discoverin
 - **TMDb API Integration:** MovieHub fetches movie data from the TMDb (The Movie Database) API, ensuring access to an extensive and up-to-date collection of movie information.
 
 ## Acknowledgments
-The [GameHub](https://github.com/qian2z/game-hub) project and Mr. Mosh Hamedani's React tutorial served as the foundation and inspiration for MovieHub. Gratitude goes to Mosh Hamedani and the team at [codewithmosh.com](codewithmosh.com).
+The [GameHub](https://github.com/qian2z/game-hub) project and Mr. Mosh Hamedani's React tutorial served as the foundation and inspiration for MovieHub. Gratitude goes to Mosh Hamedani and the team at [codewithmosh.com](https://codewithmosh.com/).
 Special thanks to [TMDb (The Movie Database)](https://developer.themoviedb.org/reference/intro/getting-started) for providing the API used in this project, enabling us to access an extensive movie database.
