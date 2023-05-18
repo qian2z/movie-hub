@@ -1,7 +1,7 @@
-import { HStack, Img } from "@chakra-ui/react";
-import logo from "../assets/logo.png";
+import { HStack, Icon } from "@chakra-ui/react";
 import ColorModeSwitch from "./ColorModeSwitch";
 import SearchInput from "./SearchInput";
+import { RiMovie2Fill } from "react-icons/ri";
 
 interface Props {
   onSearch: (searchedText: string) => void;
@@ -10,7 +10,7 @@ interface Props {
 const NavBar = ({ onSearch }: Props) => {
   return (
     <HStack marginX={3} padding="10px">
-      <Img src={logo} boxSize="45px" objectFit="cover" marginY={2}></Img>
+      <Icon mr={3} as={RiMovie2Fill} w={10} h={10} />
       <SearchInput onSearch={onSearch} />
       <ColorModeSwitch />
     </HStack>
