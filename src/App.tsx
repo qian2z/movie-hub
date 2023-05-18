@@ -12,6 +12,7 @@ export interface MovieQuery {
   genre: Genre | null;
   language: Language | null;
   sortOrder: string;
+  searchText: string;
 }
 
 function App() {
@@ -23,7 +24,11 @@ function App() {
       templateColumns={{ base: "1fr", lg: "200px 1fr" }}
     >
       <GridItem area="nav">
-        <NavBar />
+        <NavBar
+          onSearch={(searchText) =>
+            setMovieQuery({ ...movieQuery, searchText })
+          }
+        />
       </GridItem>
       <Show above="lg">
         <GridItem area="aside" pl={10}>

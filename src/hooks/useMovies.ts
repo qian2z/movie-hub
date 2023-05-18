@@ -9,17 +9,28 @@ export interface Movie {
   release_date: string;
 }
 
-const useMovies = (movieQuery: MovieQuery) =>
-  useData<Movie>(
-    "/discover/movie",
-    {
-      params: {
-        with_genres: movieQuery.genre?.id,
-        language: movieQuery.language?.iso_639_1,
-        sort_by: movieQuery.sortOrder,
-      },
+const useMovies = (movieQuery: MovieQuery) => {
+  console.log(movieQuery.searchText);
+  const endPoint =
+    movieQuery.searchText === undefined ? "/discover/movie" : "/search/movie";
+
+  const configObj = {
+    params: {
+      with_genres: movieQuery.genre?.id,
+      language: movieQuery.language?.iso_639_1,
+      sort_by: movieQuery.sortOrder,
     },
-    [movieQuery]
-  );
+  };
+
+  const searchObj = {
+    params: {
+      query: movieQuery.searchText,
+    },
+  };
+
+  const obj = movieQuery.searchText === undefined ? configObj : searchObj;
+
+  return useData<Movie>(endPoint, obj, [movieQuery]);
+};
 
 export default useMovies;
