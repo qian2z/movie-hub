@@ -1,4 +1,4 @@
-import { Grid, GridItem, HStack, Show } from "@chakra-ui/react";
+import { Box, Flex, Grid, GridItem, HStack, Show } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
 import MovieGrid from "./components/MovieGrid";
 import GenreList from "./components/GenreList";
@@ -34,20 +34,22 @@ function App() {
         </GridItem>
       </Show>
       <GridItem area="main">
-        <HStack padding={2} marginBottom={2}>
-          <LanguageSelector
-            selectedLanguage={movieQuery.language}
-            onSelectLanguage={(language) =>
-              setMovieQuery({ ...movieQuery, language })
-            }
-          />
+        <Flex padding={2.5} marginBottom={2}>
+          <Box marginRight={3}>
+            <LanguageSelector
+              selectedLanguage={movieQuery.language}
+              onSelectLanguage={(language) =>
+                setMovieQuery({ ...movieQuery, language })
+              }
+            />
+          </Box>
           <SortSelector
             selectedSort={movieQuery.sortOrder}
             onSelectSortOrder={(sortOrder) =>
               setMovieQuery({ ...movieQuery, sortOrder })
             }
           />
-        </HStack>
+        </Flex>
         <MovieGrid movieQuery={movieQuery} />
       </GridItem>
     </Grid>
