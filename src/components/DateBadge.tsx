@@ -8,8 +8,10 @@ const YearBadge = ({ date }: Props) => {
   const year = parseInt(date.substring(0, 4));
   const currentYear = new Date().getFullYear();
 
-  const label = year === currentYear ? "NEW" : year;
-  const color = year === currentYear ? "green" : "blue";
+  const label =
+    year === currentYear ? "NEW" : year > currentYear ? "COMING SOON" : year;
+  const color =
+    year === currentYear ? "green" : year > currentYear ? "orange" : "blue";
 
   return (
     <Badge
