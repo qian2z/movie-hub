@@ -16,12 +16,7 @@ const MovieGrid = ({ movieQuery }: Props) => {
   if (error) return <Text>{error}</Text>;
 
   return (
-    <SimpleGrid
-      columns={{ sm: 1, md: 2, lg: 3 }}
-      padding="10px"
-      spacing={8}
-      marginRight={8}
-    >
+    <SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} padding="10px" spacing={8}>
       {isLoading &&
         skeletons.map((skeleton) => (
           <MovieCardContainer key={skeleton}>

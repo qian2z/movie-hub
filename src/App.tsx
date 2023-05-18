@@ -39,15 +39,15 @@ function App() {
           />
         </GridItem>
       </Show>
-      <GridItem area="main">
+      <GridItem area="main" marginX={3}>
         <MovieHeading
           movieQuery={movieQuery}
           onClear={() => {
             setMovieQuery({} as MovieQuery);
           }}
         />
-        <Flex padding={2.5} marginBottom={2}>
-          <Box marginRight={3}>
+        <Flex flexWrap="wrap" padding={2.5}>
+          <Box marginRight={3} marginBottom={3}>
             <LanguageSelector
               selectedLanguage={movieQuery.language}
               onSelectLanguage={(language) =>
