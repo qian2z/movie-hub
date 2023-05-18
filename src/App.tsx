@@ -4,6 +4,7 @@ import MovieGrid from "./components/MovieGrid";
 import GenreList from "./components/GenreList";
 import { useState } from "react";
 import { Genre } from "./hooks/useGenres";
+import LanguageSelector from "./components/LanguageSelector";
 
 function App() {
   const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
@@ -25,6 +26,7 @@ function App() {
         </GridItem>
       </Show>
       <GridItem area="main">
+        <LanguageSelector />
         <MovieGrid selectedGenre={selectedGenre} />
       </GridItem>
     </Grid>

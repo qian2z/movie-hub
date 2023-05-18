@@ -2,12 +2,6 @@ import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
 import { AxiosRequestConfig, CanceledError } from "axios";
 
-interface FetchResponse<T> {
-  count: number;
-  results?: T[];
-  genres?: T[];
-}
-
 const useData = <T>(
   endpoint: string,
   requestConfig?: AxiosRequestConfig,
@@ -23,7 +17,7 @@ const useData = <T>(
 
       setLoading(true);
       apiClient
-        .get<FetchResponse<T>>(endpoint, {
+        .get(endpoint, {
           signal: controller.signal,
           ...requestConfig,
         })
@@ -32,6 +26,9 @@ const useData = <T>(
             setData(res.data.results);
           } else if (res.data.genres) {
             setData(res.data.genres);
+          } else {
+            const languages = res.data;
+            setData(languages);
           }
           setLoading(false);
         })
