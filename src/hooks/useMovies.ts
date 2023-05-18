@@ -10,7 +10,6 @@ export interface Movie {
 }
 
 const useMovies = (movieQuery: MovieQuery) => {
-  console.log(movieQuery.searchText);
   const endPoint =
     movieQuery.searchText === undefined ? "/discover/movie" : "/search/movie";
 

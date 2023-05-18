@@ -7,6 +7,7 @@ import { Genre } from "./hooks/useGenres";
 import LanguageSelector from "./components/LanguageSelector";
 import { Language } from "./hooks/useLanguges";
 import SortSelector from "./components/SortSelector";
+import MoveHeading from "./components/MovieHeading";
 
 export interface MovieQuery {
   genre: Genre | null;
@@ -39,6 +40,7 @@ function App() {
         </GridItem>
       </Show>
       <GridItem area="main">
+        <MoveHeading movieQuery={movieQuery} />
         <Flex padding={2.5} marginBottom={2}>
           <Box marginRight={3}>
             <LanguageSelector
