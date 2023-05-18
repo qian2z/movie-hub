@@ -1,6 +1,6 @@
-import { Grid, GridItem, HStack, Show } from "@chakra-ui/react";
+import { Grid, GridItem, Show } from "@chakra-ui/react";
 import NavBar from "./components/NavBar";
-import ColorModeSwitch from "./components/ColorModeSwitch";
+import MovieGrid from "./components/MovieGrid";
 
 function App() {
   return (
@@ -15,8 +15,8 @@ function App() {
           Side
         </GridItem>
       </Show>
-      <GridItem area="main" bg="blue">
-        Main
+      <GridItem area="main">
+        <MovieGrid />
       </GridItem>
     </Grid>
   );
