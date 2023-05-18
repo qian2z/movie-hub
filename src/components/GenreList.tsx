@@ -12,7 +12,7 @@ const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
   const newData = data.filter((genre) => genre.name !== "Crime");
 
   return (
-    <List>
+    <List marginTop={8}>
       {newData.map((genre) => (
         <ListItem key={genre.id} paddingY={5}>
           <Button
