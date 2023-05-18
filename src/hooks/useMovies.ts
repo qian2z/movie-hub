@@ -1,6 +1,5 @@
+import { MovieQuery } from "../App";
 import useData from "./useData";
-import { Genre } from "./useGenres";
-import { Language } from "./useLanguges";
 
 export interface Movie {
   id: number;
@@ -10,19 +9,16 @@ export interface Movie {
   release_date: string;
 }
 
-const useMovies = (
-  selectedGenre: Genre | null,
-  selectedLanguage: Language | null
-) =>
+const useMovies = (movieQuery: MovieQuery) =>
   useData<Movie>(
     "/discover/movie",
     {
       params: {
-        with_genres: selectedGenre?.id,
-        language: selectedLanguage?.iso_639_1,
+        with_genres: movieQuery.genre?.id,
+        language: movieQuery.language?.iso_639_1,
       },
     },
-    [selectedGenre?.id, selectedLanguage?.iso_639_1]
+    [movieQuery]
   );
 
 export default useMovies;
