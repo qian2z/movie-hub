@@ -9,7 +9,13 @@ interface Props {
 
 const MovieCard = ({ movie }: Props) => {
   return (
-    <Card variant="filled" borderRadius={10} overflowY="hidden">
+    <Card
+      width="450px"
+      height="auto"
+      variant="filled"
+      borderRadius={10}
+      overflowY="hidden"
+    >
       <Image src={getImageUrl(movie.poster_path)} objectFit="cover" />
       <CardBody>
         <Heading fontSize="2xl">
