@@ -17,7 +17,7 @@ const VotingAvgBadge = ({ rating }: Props) => {
       paddingY={0.5}
       borderRadius={4}
     >
-      {rating}
+      {rating.toFixed(1)}
     </Badge>
   );
 };
