@@ -9,11 +9,9 @@ interface Props {
 const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
   const { data } = useGenres();
 
-  const newData = data.filter((genre) => genre.name !== "Crime");
-
   return (
     <List marginTop={8}>
-      {newData.map((genre) => (
+      {data.map((genre) => (
         <ListItem key={genre.id} paddingY={5}>
           <Button
             fontWeight={genre.id === selectedGenre?.id ? "bold" : ""}
