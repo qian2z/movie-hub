@@ -1,13 +1,12 @@
-import { Box, Flex, Grid, GridItem, Show } from "@chakra-ui/react";
-import NavBar from "./components/NavBar";
-import MovieGrid from "./components/MovieGrid";
-import GenreList from "./components/GenreList";
+import { Flex, Grid, GridItem, Show } from "@chakra-ui/react";
 import { useState } from "react";
-import { Genre } from "./hooks/useGenres";
-import LanguageSelector from "./components/LanguageSelector";
-import { Language } from "./hooks/useLanguges";
-import SortSelector from "./components/SortSelector";
+import GenreList from "./components/GenreList";
+import MovieGrid from "./components/MovieGrid";
 import MovieHeading from "./components/MovieHeading";
+import NavBar from "./components/NavBar";
+import SortSelector from "./components/SortSelector";
+import { Genre } from "./hooks/useGenres";
+import { Language } from "./hooks/useLanguges";
 
 export interface MovieQuery {
   genre: Genre | null;
@@ -29,6 +28,8 @@ function App() {
           onSearch={(searchText) =>
             setMovieQuery({ ...movieQuery, searchText })
           }
+          movieQuery={movieQuery}
+          setMovieQuery={setMovieQuery}
         />
       </GridItem>
       <Show above="lg">
@@ -47,14 +48,6 @@ function App() {
           }}
         />
         <Flex flexWrap="wrap" padding={2.5}>
-          <Box marginRight={3} marginBottom={3}>
-            <LanguageSelector
-              selectedLanguage={movieQuery.language}
-              onSelectLanguage={(language) =>
-                setMovieQuery({ ...movieQuery, language })
-              }
-            />
-          </Box>
           <SortSelector
             selectedSort={movieQuery.sortOrder}
             onSelectSortOrder={(sortOrder) =>

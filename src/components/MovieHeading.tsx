@@ -8,9 +8,7 @@ interface Props {
 }
 
 const MovieHeading = ({ movieQuery, onClear }: Props) => {
-  const normalHeading = `${movieQuery.language?.english_name || ""} ${
-    movieQuery.genre?.name || ""
-  } Movies`;
+  const normalHeading = `${movieQuery.genre?.name || ""} Movies`;
 
   const searchHeading = `Search '${movieQuery.searchText}'`;
 
@@ -18,9 +16,7 @@ const MovieHeading = ({ movieQuery, onClear }: Props) => {
     movieQuery.searchText === undefined ? normalHeading : searchHeading;
 
   const setButton =
-    movieQuery.genre == null &&
-    movieQuery.language == null &&
-    movieQuery.searchText == undefined
+    movieQuery.genre == null && movieQuery.searchText == undefined
       ? false
       : true;
 

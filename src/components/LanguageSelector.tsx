@@ -12,16 +12,23 @@ const LanguageSelector = ({ selectedLanguage, onSelectLanguage }: Props) => {
 
   return (
     <Menu>
-      <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-        {selectedLanguage?.english_name || "Languages"}
+      <MenuButton
+        as={Button}
+        rightIcon={<BsChevronDown />}
+        transition="all 0.2s"
+        borderRadius="md"
+        borderWidth="1px"
+        _focus={{ boxShadow: "outline" }}
+      >
+        {selectedLanguage?.iso_639_1.toUpperCase() || "EN"}
       </MenuButton>
-      <MenuList maxHeight="300px" overflowY="auto">
+      <MenuList>
         {data.map((language) => (
           <MenuItem
             onClick={() => onSelectLanguage(language)}
             key={language.iso_639_1}
           >
-            {language.english_name}
+            {language.iso_639_1.toUpperCase()}
           </MenuItem>
         ))}
       </MenuList>
