@@ -25,6 +25,7 @@ const useMovies = (movieQuery: MovieQuery) => {
   const searchObj = {
     params: {
       query: movieQuery.searchText,
+      language: movieQuery.language?.iso_639_1,
     },
   };
 

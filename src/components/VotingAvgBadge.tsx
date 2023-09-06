@@ -7,7 +7,7 @@ interface Props {
 const VotingAvgBadge = ({ rating }: Props) => {
   const color = rating > 8.0 ? "green" : rating > 6.0 ? "orange" : "blue";
 
-  return (
+  return rating !== 0 ? (
     <Badge
       ml={1.5}
       mb={1.5}
@@ -19,7 +19,7 @@ const VotingAvgBadge = ({ rating }: Props) => {
     >
       {rating.toFixed(1)}
     </Badge>
-  );
+  ) : null;
 };
 
 export default VotingAvgBadge;
