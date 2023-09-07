@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { MovieQuery } from "../App";
-import apiClient from "../services/api-client";
+import APIClient from "../services/api-client";
 
 export interface Movie {
   id: number;
@@ -19,22 +19,22 @@ interface MoviesFetchResponse {
 }
 
 const useMovies = (movieQuery: MovieQuery) => {
-  const endPoint =
+  const endpoint =
     movieQuery.searchText === undefined ? "/discover/movie" : "/search/movie";
+
+  const apiClient = new APIClient<MoviesFetchResponse>(endpoint);
 
   return useQuery<MoviesFetchResponse, Error>({
     queryKey: ["movies", movieQuery],
     queryFn: () =>
-      apiClient
-        .get<MoviesFetchResponse>(endPoint, {
-          params: {
-            with_genres: movieQuery.genre?.id,
-            language: movieQuery.language?.iso_639_1,
-            sort_by: movieQuery.sortOrder,
-            query: movieQuery.searchText,
-          },
-        })
-        .then((res) => res.data),
+      apiClient.getAll({
+        params: {
+          with_genres: movieQuery.genre?.id,
+          language: movieQuery.language?.iso_639_1,
+          sort_by: movieQuery.sortOrder,
+          query: movieQuery.searchText,
+        },
+      }),
   });
 };
 
