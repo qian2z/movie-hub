@@ -4,11 +4,14 @@ import ColorModeSwitch from "./ColorModeSwitch";
 import LanguageSwitch from "./LanguageSwitch";
 import NavDrawer from "./NavDrawer";
 import SearchInput from "./SearchInput";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
     <HStack marginX={3} padding="10px">
-      <Icon mr={3} as={RiMovie2Fill} w={10} h={10} />
+      <Link to="/">
+        <Icon mt={2} as={RiMovie2Fill} w={10} h={10} />
+      </Link>
       <SearchInput />
       <Box display={{ base: "none", lg: "flex" }} flexDirection="row">
         <LanguageSwitch />
