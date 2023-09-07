@@ -9,8 +9,7 @@ const MovieDetailsPage = () => {
   const { data: movie, error, isLoading } = useMovie(id!, language_iso);
 
   if (isLoading) return <Spinner />;
-
-  if (error || !movie) return error;
+  if (error || !movie) throw error;
 
   return (
     <Box paddingY={10}>

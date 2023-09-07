@@ -1,6 +1,6 @@
 import { Card, CardBody, Heading, Image } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import { Movie } from "../hooks/useMovies";
+import Movie from "../entities/Movie";
 import getImageUrl from "../services/image-url";
 import VotingAvgBadge from "./VotingAvgBadge";
 
