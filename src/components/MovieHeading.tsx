@@ -1,4 +1,4 @@
-import { Button, HStack, Heading } from "@chakra-ui/react";
+import { HStack, Heading, IconButton } from "@chakra-ui/react";
 import { ImCross } from "react-icons/im";
 import useGenre from "../hooks/useGenre";
 import useMovieQueryStore from "../store";
@@ -24,13 +24,21 @@ const MovieHeading = () => {
 
   return (
     <HStack>
-      <Heading as="h1" padding={2} marginY={1} fontSize="5xl">
+      <Heading
+        as="h1"
+        padding={3}
+        paddingRight={0}
+        fontSize={{ base: "2xl", lg: "4xl", xl: "5xl" }}
+      >
         {heading}
       </Heading>
       {setButton && (
-        <Button onClick={() => onClear(language_iso)}>
-          <ImCross />
-        </Button>
+        <IconButton
+          icon={<ImCross />}
+          onClick={() => onClear(language_iso)}
+          aria-label={""}
+          size={{ base: "sm", lg: "md" }}
+        />
       )}
     </HStack>
   );
