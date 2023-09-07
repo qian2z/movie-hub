@@ -3,7 +3,8 @@ import useGenres from "../hooks/useGenres";
 import useMovieQueryStore from "../store";
 
 const GenreList = () => {
-  const { data, error, isLoading } = useGenres();
+  const language_iso = useMovieQueryStore((m) => m.movieQuery.language_iso);
+  const { data, error, isLoading } = useGenres(language_iso);
   const selectedGenreId = useMovieQueryStore((m) => m.movieQuery.genreId);
   const setSelectedGenreId = useMovieQueryStore((m) => m.setGenre);
 

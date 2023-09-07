@@ -6,13 +6,14 @@ import useMovieQueryStore from "../store";
 const SearchInput = () => {
   const ref = useRef<HTMLInputElement>(null);
   const setSearchText = useMovieQueryStore((m) => m.setSearchText);
+  const language_iso = useMovieQueryStore((m) => m.movieQuery.language_iso);
 
   return (
     <form
       onSubmit={(event) => {
         event.preventDefault();
         if (ref.current) {
-          setSearchText(ref.current.value);
+          setSearchText(language_iso, ref.current.value);
           ref.current.value = "";
         }
       }}
