@@ -4,12 +4,20 @@ import useMovieQueryStore from "../store";
 
 const SortSelector = () => {
   const sortOrders = [
-    { value: "", label: "Relevance" },
-    { value: "popularity.desc", label: "Popularity" },
-    { value: "primary_release_date.desc", label: "Release Date" },
-    { value: "vote_average.desc", label: "Average Rating" },
+    { value: "popularity.desc", en_label: "Popularity", ch_label: "热度" },
+    {
+      value: "primary_release_date.desc",
+      en_label: "Release Date",
+      ch_label: "发行时间",
+    },
+    {
+      value: "vote_average.desc",
+      en_label: "Average Rating",
+      ch_label: "评分",
+    },
   ];
 
+  const selectedLanguage = useMovieQueryStore((m) => m.movieQuery.language_iso);
   const selectedSortOrder = useMovieQueryStore((m) => m.movieQuery.sortOrder);
   const setSelectedSortOrder = useMovieQueryStore((m) => m.setSortOrder);
 
@@ -20,7 +28,9 @@ const SortSelector = () => {
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-        Order By: {currentSortOrder?.label || "Relevance"}
+        {selectedLanguage === "en"
+          ? `Order By: ${currentSortOrder?.en_label || "Popularity"}`
+          : `排序：${currentSortOrder?.ch_label || "热度"}`}
       </MenuButton>
       <MenuList>
         {sortOrders.map((order) => (
@@ -28,7 +38,7 @@ const SortSelector = () => {
             onClick={() => setSelectedSortOrder(order.value)}
             key={order.value}
           >
-            {order.label}
+            {selectedLanguage === "en" ? order.en_label : order.ch_label}
           </MenuItem>
         ))}
       </MenuList>
