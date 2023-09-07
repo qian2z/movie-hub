@@ -4,28 +4,27 @@ interface Props {
   date: string;
 }
 
-const YearBadge = ({ date }: Props) => {
+const DateBadge = ({ date }: Props) => {
   const year = parseInt(date.substring(0, 4));
   const currentYear = new Date().getFullYear();
 
-  const label =
-    year === currentYear ? "NEW" : year > currentYear ? "COMING SOON" : year;
   const color =
-    year === currentYear ? "green" : year > currentYear ? "orange" : "blue";
+    year === currentYear ? "green" : year > currentYear ? "red" : "purple";
 
   return (
     <Badge
-      ml={1.5}
+      ml={5}
       mb={1.5}
       colorScheme={color}
-      fontSize="16px"
+      fontSize="20px"
       paddingX={1.5}
       paddingY={0.5}
       borderRadius={4}
+      variant="outline"
     >
-      {label}
+      {date}
     </Badge>
   );
 };
 
-export default YearBadge;
+export default DateBadge;

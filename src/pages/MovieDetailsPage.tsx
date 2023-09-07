@@ -1,5 +1,7 @@
 import { Box, Heading, Spinner, Text } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
+import DateBadge from "../components/DateBadge";
+import QuoteDivider from "../components/QuoteDivider";
 import useMovie from "../hooks/useMovie";
 import useMovieQueryStore from "../store";
 
@@ -13,8 +15,14 @@ const MovieDetailsPage = () => {
 
   return (
     <Box paddingY={10}>
-      <Heading marginBottom={5}>{movie.title}</Heading>
-      <Text fontSize="xl">{movie.overview}</Text>
+      <Heading marginBottom={4}>
+        {movie.title}
+        <DateBadge date={movie.release_date} />
+      </Heading>
+      <QuoteDivider tagline={movie.tagline} />
+      <Text fontSize="xl" marginY={4}>
+        {movie.overview}
+      </Text>
     </Box>
   );
 };

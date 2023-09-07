@@ -1,8 +1,10 @@
 export default interface Movie {
   id: number;
   title: string;
-  poster_path: string;
   overview: string;
+  poster_path: string;
+
   release_date: string;
+  tagline: string;
   vote_average: number;
 }
