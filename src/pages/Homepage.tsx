@@ -11,7 +11,7 @@ const Homepage = () => {
       templateColumns={{ base: "1fr", lg: "200px 1fr" }}
     >
       <Show above="lg">
-        <GridItem area="aside" pl={10}>
+        <GridItem area="aside">
           <GenreList />
         </GridItem>
       </Show>

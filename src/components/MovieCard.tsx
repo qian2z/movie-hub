@@ -1,4 +1,4 @@
-import { Card, CardBody, Heading, Image, Text } from "@chakra-ui/react";
+import { Card, CardBody, Heading, Image } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { Movie } from "../hooks/useMovies";
 import getImageUrl from "../services/image-url";
@@ -18,8 +18,6 @@ const MovieCard = ({ movie }: Props) => {
             {movie.title}
             <VotingAvgBadge rating={movie.vote_average} />
           </Heading>
-
-          <Text mt={2}>{movie.overview}</Text>
         </CardBody>
       </Card>
     </Link>
