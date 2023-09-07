@@ -13,10 +13,9 @@ const DateBadge = ({ date }: Props) => {
 
   return (
     <Badge
-      ml={5}
-      mb={1.5}
+      marginTop={2}
       colorScheme={color}
-      fontSize="20px"
+      fontSize="16px"
       paddingX={1.5}
       paddingY={0.5}
       borderRadius={4}

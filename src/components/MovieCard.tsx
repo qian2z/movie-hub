@@ -13,7 +13,7 @@ const MovieCard = ({ movie }: Props) => {
     <Link to={`/movies/${movie.id}`}>
       <Card width="100%" height="100%" variant="filled">
         <Image src={getImageUrl(movie.poster_path)} objectFit="cover" />
-        <CardBody>
+        <CardBody display="flex" flexDirection="row">
           <Heading fontSize="3xl">
             {movie.title}
             <VotingAvgBadge rating={movie.vote_average} />
