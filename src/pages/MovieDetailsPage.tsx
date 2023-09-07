@@ -16,7 +16,7 @@ const MovieDetailsPage = () => {
   if (error || !movie) throw error;
 
   return (
-    <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5} paddingY={10}>
+    <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5} padding={10}>
       <Box>
         <Heading marginBottom={4}>{movie.title}</Heading>
         <QuoteDivider tagline={movie.tagline} />
