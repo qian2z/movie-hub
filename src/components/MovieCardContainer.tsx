@@ -9,7 +9,6 @@ const MovieCardContainer = ({ children }: Props) => {
   return (
     <Box
       width="100%"
-      minH="950px"
       borderRadius={10}
       overflow="hidden"
       transition="transform 0.2s ease-in"

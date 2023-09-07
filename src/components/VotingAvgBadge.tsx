@@ -9,10 +9,10 @@ const VotingAvgBadge = ({ rating }: Props) => {
 
   return rating !== 0 ? (
     <Badge
-      ml={1.5}
+      ml={3}
       mb={1.5}
       colorScheme={color}
-      fontSize="16px"
+      fontSize="18px"
       paddingX={1.5}
       paddingY={0.5}
       borderRadius={4}

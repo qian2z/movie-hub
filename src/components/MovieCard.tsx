@@ -14,7 +14,7 @@ const MovieCard = ({ movie }: Props) => {
       <Card width="100%" height="100%" variant="filled">
         <Image src={getImageUrl(movie.poster_path)} objectFit="cover" />
         <CardBody>
-          <Heading fontSize="2xl">
+          <Heading fontSize="3xl">
             {movie.title}
             <VotingAvgBadge rating={movie.vote_average} />
           </Heading>
