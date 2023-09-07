@@ -1,9 +1,9 @@
 import { SimpleGrid, Text } from "@chakra-ui/react";
+import { MovieQuery } from "../App";
 import useMovies from "../hooks/useMovies";
 import MovieCard from "./MovieCard";
-import MovieCardSkeleton from "./MovieCardSkeleton";
 import MovieCardContainer from "./MovieCardContainer";
-import { MovieQuery } from "../App";
+import MovieCardSkeleton from "./MovieCardSkeleton";
 
 interface Props {
   movieQuery: MovieQuery;

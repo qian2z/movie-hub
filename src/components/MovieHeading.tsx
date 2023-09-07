@@ -1,6 +1,6 @@
 import { Button, HStack, Heading } from "@chakra-ui/react";
-import { MovieQuery } from "../App";
 import { ImCross } from "react-icons/im";
+import { MovieQuery } from "../App";
 
 interface Props {
   movieQuery: MovieQuery;
