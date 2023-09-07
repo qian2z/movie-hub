@@ -1,19 +1,15 @@
 import { Flex, Grid, GridItem, Show } from "@chakra-ui/react";
-import GenreList from "./components/GenreList";
-import MovieGrid from "./components/MovieGrid";
-import MovieHeading from "./components/MovieHeading";
-import NavBar from "./components/NavBar";
-import SortSelector from "./components/SortSelector";
+import GenreList from "../components/GenreList";
+import MovieGrid from "../components/MovieGrid";
+import MovieHeading from "../components/MovieHeading";
+import SortSelector from "../components/SortSelector";
 
-function App() {
+const Homepage = () => {
   return (
     <Grid
-      templateAreas={{ base: `"nav" "main"`, lg: `"nav nav" "aside main"` }}
+      templateAreas={{ base: `"main"`, lg: `"aside main"` }}
       templateColumns={{ base: "1fr", lg: "200px 1fr" }}
     >
-      <GridItem mt={3} area="nav">
-        <NavBar />
-      </GridItem>
       <Show above="lg">
         <GridItem area="aside" pl={10}>
           <GenreList />
@@ -28,6 +24,6 @@ function App() {
       </GridItem>
     </Grid>
   );
-}
+};
 
-export default App;
+export default Homepage;
