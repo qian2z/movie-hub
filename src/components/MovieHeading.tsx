@@ -1,7 +1,7 @@
 import { Button, HStack, Heading } from "@chakra-ui/react";
 import { ImCross } from "react-icons/im";
 import { MovieQuery } from "../App";
-import useGenres from "../hooks/useGenres";
+import useGenre from "../hooks/useGenre";
 
 interface Props {
   movieQuery: MovieQuery;
@@ -9,8 +9,7 @@ interface Props {
 }
 
 const MovieHeading = ({ movieQuery, onClear }: Props) => {
-  const { data: genres } = useGenres();
-  const genre = genres?.genres.find((g) => g.id === movieQuery.genreId);
+  const genre = useGenre(movieQuery.genreId);
 
   const normalHeading = `${genre?.name || ""} Movies`;
 
