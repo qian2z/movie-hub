@@ -1,10 +1,10 @@
 import { Box, HStack, Icon } from "@chakra-ui/react";
 import { RiMovie2Fill } from "react-icons/ri";
+import { Link } from "react-router-dom";
 import ColorModeSwitch from "./ColorModeSwitch";
 import LanguageSwitch from "./LanguageSwitch";
 import NavDrawer from "./NavDrawer";
 import SearchInput from "./SearchInput";
-import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
