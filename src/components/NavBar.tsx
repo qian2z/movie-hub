@@ -17,9 +17,9 @@ const NavBar = ({ onSearch, movieQuery, setMovieQuery }: Props) => {
       <Icon mr={3} as={RiMovie2Fill} w={10} h={10} />
       <SearchInput onSearch={onSearch} />
       <LanguageSelector
-        selectedLanguage={movieQuery.language}
+        selectedLanguage={movieQuery.language_iso}
         onSelectLanguage={(language) =>
-          setMovieQuery({ ...movieQuery, language })
+          setMovieQuery({ ...movieQuery, language_iso: language.iso_639_1 })
         }
       />
       <ColorModeSwitch />

@@ -3,7 +3,7 @@ import { BsChevronDown } from "react-icons/bs";
 import useLanguages, { Language } from "../hooks/useLanguges";
 
 interface Props {
-  selectedLanguage: Language | null;
+  selectedLanguage?: string;
   onSelectLanguage: (language: Language) => void;
 }
 
@@ -20,7 +20,7 @@ const LanguageSelector = ({ selectedLanguage, onSelectLanguage }: Props) => {
         borderWidth="1px"
         _focus={{ boxShadow: "outline" }}
       >
-        {selectedLanguage?.iso_639_1.toUpperCase() || "EN"}
+        {selectedLanguage?.toUpperCase() || "EN"}
       </MenuButton>
       <MenuList>
         {data.map((language) => (

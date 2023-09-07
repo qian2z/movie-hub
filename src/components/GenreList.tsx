@@ -2,11 +2,11 @@ import { Button, List, ListItem, Spinner } from "@chakra-ui/react";
 import useGenres, { Genre } from "../hooks/useGenres";
 
 interface Props {
-  selectedGenre: Genre | null;
+  selectedGenreId?: number;
   onSelectGenre: (genre: Genre) => void;
 }
 
-const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
+const GenreList = ({ selectedGenreId, onSelectGenre }: Props) => {
   const { data, error, isLoading } = useGenres();
 
   if (isLoading) return <Spinner />;
@@ -17,7 +17,7 @@ const GenreList = ({ selectedGenre, onSelectGenre }: Props) => {
       {data?.genres.map((genre) => (
         <ListItem key={genre.id} paddingY={5}>
           <Button
-            fontWeight={genre.id === selectedGenre?.id ? "bold" : ""}
+            fontWeight={genre.id === selectedGenreId ? "bold" : ""}
             onClick={() => onSelectGenre(genre)}
             variant="link"
             fontSize="xl"

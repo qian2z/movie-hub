@@ -1,6 +1,7 @@
 import { Button, HStack, Heading } from "@chakra-ui/react";
 import { ImCross } from "react-icons/im";
 import { MovieQuery } from "../App";
+import useGenres from "../hooks/useGenres";
 
 interface Props {
   movieQuery: MovieQuery;
@@ -8,7 +9,10 @@ interface Props {
 }
 
 const MovieHeading = ({ movieQuery, onClear }: Props) => {
-  const normalHeading = `${movieQuery.genre?.name || ""} Movies`;
+  const { data: genres } = useGenres();
+  const genre = genres?.genres.find((g) => g.id === movieQuery.genreId);
+
+  const normalHeading = `${genre?.name || ""} Movies`;
 
   const searchHeading = `Search '${movieQuery.searchText}'`;
 
@@ -16,7 +20,7 @@ const MovieHeading = ({ movieQuery, onClear }: Props) => {
     movieQuery.searchText === undefined ? normalHeading : searchHeading;
 
   const setButton =
-    movieQuery.genre == null && movieQuery.searchText == undefined
+    movieQuery.genreId == null && movieQuery.searchText == undefined
       ? false
       : true;
 

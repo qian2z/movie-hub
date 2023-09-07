@@ -5,12 +5,10 @@ import MovieGrid from "./components/MovieGrid";
 import MovieHeading from "./components/MovieHeading";
 import NavBar from "./components/NavBar";
 import SortSelector from "./components/SortSelector";
-import { Genre } from "./hooks/useGenres";
-import { Language } from "./hooks/useLanguges";
 
 export interface MovieQuery {
-  genre: Genre | null;
-  language: Language | null;
+  genreId?: number;
+  language_iso?: string;
   sortOrder: string;
   searchText: string;
 }
@@ -35,8 +33,10 @@ function App() {
       <Show above="lg">
         <GridItem area="aside" pl={10}>
           <GenreList
-            selectedGenre={movieQuery.genre}
-            onSelectGenre={(genre) => setMovieQuery({ ...movieQuery, genre })}
+            selectedGenreId={movieQuery.genreId}
+            onSelectGenre={(genre) =>
+              setMovieQuery({ ...movieQuery, genreId: genre.id })
+            }
           />
         </GridItem>
       </Show>
