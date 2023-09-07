@@ -1,27 +1,25 @@
 import { Button, HStack, Heading } from "@chakra-ui/react";
 import { ImCross } from "react-icons/im";
-import { MovieQuery } from "../App";
 import useGenre from "../hooks/useGenre";
+import useMovieQueryStore from "../store";
 
-interface Props {
-  movieQuery: MovieQuery;
-  onClear: () => void;
-}
+const MovieHeading = () => {
+  const genreId = useMovieQueryStore((m) => m.movieQuery.genreId);
+  const genre = useGenre(genreId);
 
-const MovieHeading = ({ movieQuery, onClear }: Props) => {
-  const genre = useGenre(movieQuery.genreId);
+  const searchText = useMovieQueryStore((m) => m.movieQuery.searchText);
+
+  const onClear = useMovieQueryStore((m) => m.clearFilters);
+
+  const language_iso = useMovieQueryStore((m) => m.movieQuery.language_iso);
 
   const normalHeading = `${genre?.name || ""} Movies`;
 
-  const searchHeading = `Search '${movieQuery.searchText}'`;
+  const searchHeading = `Search '${searchText}'`;
 
-  const heading =
-    movieQuery.searchText === undefined ? normalHeading : searchHeading;
+  const heading = searchText === undefined ? normalHeading : searchHeading;
 
-  const setButton =
-    movieQuery.genreId == null && movieQuery.searchText == undefined
-      ? false
-      : true;
+  const setButton = genre == null && searchText == undefined ? false : true;
 
   return (
     <HStack>
@@ -29,7 +27,7 @@ const MovieHeading = ({ movieQuery, onClear }: Props) => {
         {heading}
       </Heading>
       {setButton && (
-        <Button onClick={onClear}>
+        <Button onClick={() => onClear(language_iso || "en")}>
           <ImCross />
         </Button>
       )}

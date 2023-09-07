@@ -1,7 +1,7 @@
 import { useInfiniteQuery } from "@tanstack/react-query";
 import ms from "ms";
-import { MovieQuery } from "../App";
 import APIClient from "../services/api-client";
+import useMovieQueryStore from "../store";
 
 export interface Movie {
   id: number;
@@ -19,7 +19,9 @@ interface MoviesFetchResponse {
   total_results: number;
 }
 
-const useMovies = (movieQuery: MovieQuery) => {
+const useMovies = () => {
+  const movieQuery = useMovieQueryStore((m) => m.movieQuery);
+
   const endpoint =
     movieQuery.searchText === undefined ? "/discover/movie" : "/search/movie";
 

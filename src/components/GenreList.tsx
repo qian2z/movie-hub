@@ -1,13 +1,11 @@
 import { Button, List, ListItem, Spinner } from "@chakra-ui/react";
-import useGenres, { Genre } from "../hooks/useGenres";
+import useGenres from "../hooks/useGenres";
+import useMovieQueryStore from "../store";
 
-interface Props {
-  selectedGenreId?: number;
-  onSelectGenre: (genre: Genre) => void;
-}
-
-const GenreList = ({ selectedGenreId, onSelectGenre }: Props) => {
+const GenreList = () => {
   const { data, error, isLoading } = useGenres();
+  const selectedGenreId = useMovieQueryStore((m) => m.movieQuery.genreId);
+  const setSelectedGenreId = useMovieQueryStore((m) => m.setGenre);
 
   if (isLoading) return <Spinner />;
   if (error) return null;
@@ -18,7 +16,7 @@ const GenreList = ({ selectedGenreId, onSelectGenre }: Props) => {
         <ListItem key={genre.id} paddingY={5}>
           <Button
             fontWeight={genre.id === selectedGenreId ? "bold" : ""}
-            onClick={() => onSelectGenre(genre)}
+            onClick={() => setSelectedGenreId(genre.id)}
             variant="link"
             fontSize="xl"
           >
