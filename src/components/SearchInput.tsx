@@ -23,7 +23,9 @@ const SearchInput = () => {
         <Input
           ref={ref}
           borderRadius={20}
-          placeholder="Search Movies..."
+          placeholder={
+            language_iso === "en" ? "Search Movies..." : "搜索电影..."
+          }
           variant="filled"
         />
       </InputGroup>
