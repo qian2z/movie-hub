@@ -11,8 +11,9 @@ const useTrailer = (movieId: number) => {
   const apiClient = new APIClient<TrailerFetchResponse>(
     `/movie/${movieId}/videos`
   );
+
   return useQuery<TrailerFetchResponse, Error>({
-    queryKey: ["movies", movieId, "trailer"],
+    queryKey: ["movie", movieId, "trailer"],
     queryFn: () =>
       apiClient.getAll({
         params: {

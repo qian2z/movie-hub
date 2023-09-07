@@ -1,6 +1,7 @@
 import { Box, Heading, Spinner, Text } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import MovieAttribute from "../components/MovieAttribute";
+import MovieImages from "../components/MovieImages";
 import MovieTrailer from "../components/MovieTrailer";
 import QuoteDivider from "../components/QuoteDivider";
 import VotingAvgBadge from "../components/VotingAvgBadge";
@@ -27,6 +28,7 @@ const MovieDetailsPage = () => {
       </Text>
       <MovieAttribute movie={movie} />
       <MovieTrailer movieId={movie.id} />
+      <MovieImages movieId={movie.id} />
     </Box>
   );
 };
