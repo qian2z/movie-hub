@@ -36,6 +36,7 @@ const useMovies = (movieQuery: MovieQuery) => {
           page: pageParam,
         },
       }),
+    staleTime: 24 * 60 * 60 * 1000,
     keepPreviousData: true,
     getNextPageParam: (lastPage, allPages) => {
       return allPages.length < lastPage.total_pages
