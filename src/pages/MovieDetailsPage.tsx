@@ -4,7 +4,6 @@ import MovieAttribute from "../components/MovieAttribute";
 import MovieImages from "../components/MovieImages";
 import MovieTrailer from "../components/MovieTrailer";
 import QuoteDivider from "../components/QuoteDivider";
-import VotingAvgBadge from "../components/VotingAvgBadge";
 import useMovie from "../hooks/useMovie";
 import useMovieQueryStore from "../store";
 
@@ -19,10 +18,7 @@ const MovieDetailsPage = () => {
   return (
     <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5} paddingY={10}>
       <Box>
-        <Heading marginBottom={4}>
-          {movie.title}
-          <VotingAvgBadge rating={movie.vote_average} />
-        </Heading>
+        <Heading marginBottom={4}>{movie.title}</Heading>
         <QuoteDivider tagline={movie.tagline} />
         <Text fontSize="xl" marginY={4}>
           {movie.overview}

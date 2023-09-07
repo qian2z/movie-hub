@@ -12,6 +12,7 @@ import {
 import { useRef } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import ColorModeSwitch from "./ColorModeSwitch";
+import GenreList from "./GenreList";
 import LanguageSwitch from "./LanguageSwitch";
 
 const NavDrawer = () => {
@@ -38,13 +39,16 @@ const NavDrawer = () => {
           <DrawerBody>
             <Box
               display="flex"
-              flexDirection="column"
+              flexDirection="row"
               gap={5}
               margin={5}
               alignItems="center"
             >
               <LanguageSwitch />
               <ColorModeSwitch />
+            </Box>
+            <Box display="flex" flexDirection="column" alignItems="center">
+              <GenreList />
             </Box>
           </DrawerBody>
         </DrawerContent>

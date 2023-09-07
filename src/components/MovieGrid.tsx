@@ -22,7 +22,7 @@ const MovieGrid = () => {
       hasMore={!!hasNextPage}
       loader={<Spinner margin={2} />}
     >
-      <SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} padding={3} spacing={8}>
+      <SimpleGrid columns={{ sm: 1, md: 2, xl: 3 }} padding={3} spacing={8}>
         {isLoading &&
           skeletons.map((skeleton) => (
             <MovieCardContainer key={skeleton}>

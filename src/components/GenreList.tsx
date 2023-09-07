@@ -12,7 +12,12 @@ const GenreList = () => {
   if (error) return null;
 
   return (
-    <List marginTop={8}>
+    <List
+      marginTop={8}
+      display={{ base: "flex", lg: "block" }}
+      flexDirection="column"
+      alignItems="center"
+    >
       {data?.genres.map((genre) => (
         <ListItem key={genre.id} paddingY={5}>
           <Button

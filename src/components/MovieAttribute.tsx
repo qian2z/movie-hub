@@ -22,39 +22,41 @@ const MovieAttribute = ({ movie }: Props) => {
     selectedLanguage === "en" ? "Production Countries" : "产地";
 
   return (
-    <SimpleGrid columns={2} as="dl">
-      <DefinitionItem term={releaseDate}>
-        <DateBadge date={movie.release_date} />
-      </DefinitionItem>
-      <DefinitionItem term={duration}>
-        <Text>
-          {movie.runtime}
-          {selectedLanguage === "en" ? " Minutes" : " 分钟"}
-        </Text>
-      </DefinitionItem>
-      <DefinitionItem term={genres}>
-        {movie.genres?.map((genre) => (
-          <Text key={genre?.id}>{genre.name}</Text>
-        ))}
-      </DefinitionItem>
-      <DefinitionItem term={spokenLanguages}>
-        {movie.spoken_languages.map((language) => (
-          <Text key={language.iso_639_1}>{language.name}</Text>
-        ))}
-      </DefinitionItem>
-      {movie.production_companies && (
-        <DefinitionItem term={production_companies}>
-          {movie.production_companies?.map((company) => (
-            <Text key={company.id}>{company.name}</Text>
+    <>
+      <SimpleGrid columns={1} as="dl">
+        <DefinitionItem term={releaseDate}>
+          <DateBadge date={movie.release_date} />
+        </DefinitionItem>
+        <DefinitionItem term={duration}>
+          <Text>
+            {movie.runtime}
+            {selectedLanguage === "en" ? " Minutes" : " 分钟"}
+          </Text>
+        </DefinitionItem>
+        <DefinitionItem term={genres}>
+          {movie.genres?.map((genre) => (
+            <Text key={genre?.id}>{genre.name}</Text>
           ))}
         </DefinitionItem>
-      )}
-      <DefinitionItem term={production_countries}>
-        {movie.production_countries?.map((country) => (
-          <Text key={country.iso_3166_1}>{country.name}</Text>
-        ))}
-      </DefinitionItem>
-    </SimpleGrid>
+        <DefinitionItem term={spokenLanguages}>
+          {movie.spoken_languages.map((language) => (
+            <Text key={language.iso_639_1}>{language.name}</Text>
+          ))}
+        </DefinitionItem>
+        {movie.production_companies && (
+          <DefinitionItem term={production_companies}>
+            {movie.production_companies?.map((company) => (
+              <Text key={company.id}>{company.name}</Text>
+            ))}
+          </DefinitionItem>
+        )}
+        <DefinitionItem term={production_countries}>
+          {movie.production_countries?.map((country) => (
+            <Text key={country.iso_3166_1}>{country.name}</Text>
+          ))}
+        </DefinitionItem>
+      </SimpleGrid>
+    </>
   );
 };
 
