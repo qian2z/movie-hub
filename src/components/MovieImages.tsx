@@ -16,7 +16,7 @@ const MovieImages = ({ movieId }: Props) => {
   const images = data?.backdrops;
 
   return images ? (
-    <SimpleGrid columns={{ base: 2, md: 4 }} gap={2} marginY={5}>
+    <SimpleGrid columns={{ base: 1, md: 2 }} gap={2} marginY={5}>
       {images?.map((image) => (
         <Image key={image.file_path} src={getImageUrl(image.file_path)} />
       ))}

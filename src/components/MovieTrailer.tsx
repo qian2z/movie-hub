@@ -1,3 +1,4 @@
+import { AspectRatio } from "@chakra-ui/react";
 import useTrailer from "../hooks/useTrailer";
 
 interface Props {
@@ -15,7 +16,9 @@ const MovieTrailer = ({ movieId }: Props) => {
   if (error) throw error;
 
   return url ? (
-    <iframe id="ytplayer" width="1080" height="720" src={url} />
+    <AspectRatio>
+      <iframe id="ytplayer" src={url} />
+    </AspectRatio>
   ) : null;
 };
 
